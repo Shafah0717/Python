@@ -1,9 +1,15 @@
-import random
+def separate_number():
+    inFile = open("num.txt",'r')
+    pos_File = open("pos.txt",'w')
+    neg_File = open("neg.txt",'w')
 
-f = open("integer.txt",'w')
-
-for i in range(500):
-    number = random.randint(1,500)
-    f.write(str(number) + '\n')
-f.close()
-            
+    for line in inFile:
+        line = line.strip()
+        if line:
+            num = int(line)
+            if num>=0:
+                pos_File.write(f"{num} \n")
+            else:
+                neg_File.write(f"{num} \n")
+    print("separation completed")
+separate_number()
